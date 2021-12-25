@@ -6,7 +6,7 @@
 /*   By: sonkang <sonkang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 21:22:58 by sonkang           #+#    #+#             */
-/*   Updated: 2021/12/15 17:10:23 by sonkang          ###   ########.fr       */
+/*   Updated: 2021/12/22 09:39:18 by sonkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	ft_str(char **str, char const *s, char c)
 		j++;
 	}
 }
-#include <stdio.h>
+
 char	**ft_split(char const *s, char c)
 {
 	int		count;

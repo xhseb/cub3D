@@ -6,7 +6,7 @@
 /*   By: sonkang <sonkang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:50:05 by sonkang           #+#    #+#             */
-/*   Updated: 2021/12/15 18:00:47 by sonkang          ###   ########.fr       */
+/*   Updated: 2021/12/22 14:30:53 by sonkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	split_line(char **content, int i, char **line)
 	char	*temp;
 
 	(*content)[i] = '\0';
-	printf("ptr: %p    ", *content);
 	*line = ft_strdup(*content);
-	printf("line : %s\n", *line);
 	if (*content + i + 1)
 	{
 		temp = ft_strdup(*content + i + 1);
@@ -52,7 +50,11 @@ int	return_all(char **content, char **line, int rd_size)
 	int		cut_idx;
 
 	if (rd_size < 0)
+	{
+		free(*content);
+		*content = 0;
 		return (-1);
+	}
 	cut_idx = check_newline(*content);
 	if (*content && 0 <= cut_idx)
 		return (split_line(content, cut_idx, line));
@@ -78,6 +80,8 @@ int	get_next_line(int fd, char **line)
 	if (BUFFER_SIZE <= 0 || line == 0 || fd < 0)
 		return (-1);
 	rd_size = read(fd, buf, BUFFER_SIZE);
+	if (rd_size < 0)
+		return (-1);
 	while (0 < rd_size)
 	{
 		buf[rd_size] = '\0';

@@ -1,14 +1,15 @@
-NAME = cub3d
+NAME = cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -O3 
 
 MLXFLAG = -L./mlx -lmlx -framework OpenGL -framework AppKit
 
-
 SRCS = GNL/get_next_line.c GNL/get_next_line_utils.c\
-	   cub3d.c check_map_valid.c get_element.c get_texture.c map_config.c utils.c\
+	   cub3d.c check_map_valid.c get_element.c map_config.c utils.c\
+	   graphic_init.c button_key.c image_conversion.c image_conversion2.c\
+	   get_texture.c get_texture2.c 
 
 OBJS = $(SRCS:.c=.o)
 
